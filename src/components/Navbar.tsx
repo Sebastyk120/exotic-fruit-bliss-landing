@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, LogIn } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,16 +12,24 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/e8e3a81c-1c7e-4150-bdd7-b38c6985d435.png" 
             alt="L&M Exotic Fruits" 
-            className="h-20 md:h-24" // Increased logo size here
+            className="h-20 md:h-24"
           />
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-8">
-          <a href="#inicio" className="font-medium hover:text-primary transition-colors">Inicio</a>
-          <a href="#nosotros" className="font-medium hover:text-primary transition-colors">Nosotros</a>
-          <a href="#productos" className="font-medium hover:text-primary transition-colors">Productos</a>
-          <a href="#contacto" className="font-medium hover:text-primary transition-colors">Contacto</a>
+        <div className="hidden md:flex items-center">
+          <div className="flex space-x-8 mr-8">
+            <a href="#inicio" className="font-medium hover:text-primary transition-colors">Inicio</a>
+            <a href="#nosotros" className="font-medium hover:text-primary transition-colors">Nosotros</a>
+            <a href="#productos" className="font-medium hover:text-primary transition-colors">Productos</a>
+            <a href="#contacto" className="font-medium hover:text-primary transition-colors">Contacto</a>
+          </div>
+          
+          {/* Login Button */}
+          <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
+            <LogIn size={18} />
+            <span>Iniciar Sesión</span>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
@@ -40,6 +48,12 @@ const Navbar = () => {
               <a href="#nosotros" className="font-medium hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Nosotros</a>
               <a href="#productos" className="font-medium hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Productos</a>
               <a href="#contacto" className="font-medium hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Contacto</a>
+              
+              {/* Login Button in Mobile Menu */}
+              <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors self-start mt-2">
+                <LogIn size={18} />
+                <span>Iniciar Sesión</span>
+              </button>
             </div>
           </div>
         )}
