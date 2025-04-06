@@ -19,6 +19,8 @@
     --secondary-foreground: 355 100% 97%;
     --accent: 43 100% 52%;
     --accent-foreground: 240 5.9% 10%;
+    --tertiary: 196 83% 61%;
+    --quaternary: 271 76% 53%;
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
     --destructive: 0 84.2% 60.2%;
@@ -37,6 +39,13 @@
   
   body {
     @apply bg-background text-foreground font-montserrat;
+    background-image: 
+      radial-gradient(circle at 25% 5%, rgba(255, 182, 193, 0.05) 3%, transparent 15%),
+      radial-gradient(circle at 75% 15%, rgba(173, 216, 230, 0.05) 2%, transparent 12%),
+      radial-gradient(circle at 85% 45%, rgba(152, 251, 152, 0.05) 5%, transparent 18%),
+      radial-gradient(circle at 15% 75%, rgba(255, 223, 186, 0.05) 4%, transparent 16%);
+    background-size: 200% 200%;
+    background-attachment: fixed;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -54,11 +63,27 @@
   }
   
   .btn-primary {
-    @apply bg-primary text-white px-8 py-3 rounded-full font-medium transition-all hover:bg-primary/90 hover:shadow-lg;
+    @apply bg-primary text-white px-8 py-3 rounded-full font-medium transition-all hover:bg-primary/90 hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary text-white px-8 py-3 rounded-full font-medium transition-all hover:bg-secondary/90 hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-8 py-3 rounded-full font-medium transition-all hover:bg-accent/90 hover:shadow-lg hover:scale-105;
+  }
+  
+  .btn-tertiary {
+    @apply bg-tertiary text-white px-8 py-3 rounded-full font-medium transition-all hover:bg-tertiary/90 hover:shadow-lg hover:scale-105;
   }
   
   .card-fruit {
-    @apply rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white;
+    @apply rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 bg-white border-2 border-transparent hover:border-primary/20;
+  }
+  
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary via-quaternary to-secondary;
   }
   
   .fade-in {
@@ -67,6 +92,10 @@
   
   .slide-up {
     @apply opacity-0 translate-y-8 animate-[slideUp_1s_ease-in-out_forwards];
+  }
+  
+  .pulse-slow {
+    @apply animate-[pulse_5s_ease-in-out_infinite];
   }
 }
 
@@ -85,3 +114,25 @@
     transform: translateY(0);
   }
 }
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+

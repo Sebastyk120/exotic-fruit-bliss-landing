@@ -38,14 +38,29 @@ const Index = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fadeIn');
+          entry.target.classList.add('opacity-100');
           observer.unobserve(entry.target);
         }
       });
     };
 
     const observer = new IntersectionObserver(handleIntersect, observerOptions);
-    document.querySelectorAll('.slide-up, .fade-in').forEach(el => {
+    
+    // Setting up animations for sections
+    const animatedElements = document.querySelectorAll('.slide-up, .fade-in');
+    animatedElements.forEach(el => {
       observer.observe(el);
+      el.classList.add('opacity-0'); // Ensure they start invisible
+    });
+    
+    // Add animated backgrounds
+    const sections = document.querySelectorAll('section');
+    sections.forEach((section, index) => {
+      if (index % 2 === 0) {
+        section.classList.add('animated-bg-1');
+      } else {
+        section.classList.add('animated-bg-2');
+      }
     });
     
     // Update title

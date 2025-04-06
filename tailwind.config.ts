@@ -49,6 +49,12 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
+				tertiary: {
+					DEFAULT: 'hsl(var(--tertiary))',
+				},
+				quaternary: {
+					DEFAULT: 'hsl(var(--quaternary))',
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
@@ -57,6 +63,9 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+			},
+			boxShadow: {
+				'colorful': '0 10px 15px -3px rgba(233, 30, 99, 0.1), 0 4px 6px -2px rgba(0, 176, 155, 0.05)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -72,13 +81,19 @@ export default {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' },
 				},
+				float: {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
 			},
 			backgroundImage: {
 				'hero-pattern': "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/public/lovable-uploads/528ade49-4bfb-43c2-bf13-f6063c1ee729.png')",
+				'gradient-primary': 'linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--quaternary)) 50%, hsl(var(--secondary)) 100%)',
 			},
 		}
 	},
