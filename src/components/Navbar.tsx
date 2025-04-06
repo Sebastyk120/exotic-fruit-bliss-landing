@@ -12,7 +12,7 @@ const Navbar = () => {
           <img 
             src="/lovable-uploads/e8e3a81c-1c7e-4150-bdd7-b38c6985d435.png" 
             alt="L&M Exotic Fruits" 
-            className="h-14"
+            className="h-20 md:h-24" // Increased logo size here
           />
         </div>
 

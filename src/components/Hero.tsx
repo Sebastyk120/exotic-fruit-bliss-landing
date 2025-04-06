@@ -10,9 +10,13 @@ const Hero = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-4">
               Descubre el Sabor de lo <span className="text-primary">Exótico</span>
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-gray-700">
+            <p className="text-lg md:text-xl mb-4 text-gray-700">
               Desde 2017 importando las frutas exóticas más selectas para toda España y Europa. 
               Calidad premium y sabores únicos directamente a tu hogar.
+            </p>
+            <p className="text-lg md:text-xl mb-8 text-gray-700">
+              Especialistas en distribución a grandes mercados como Mercabarna y otros centros 
+              mayoristas de toda España.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#productos" className="btn-primary">
