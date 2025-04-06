@@ -9,7 +9,7 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   useEffect(() => {
-    // Smooth scrolling for anchor links
+    // Smooth scrolling for anchor links with enhanced animation
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       if (target.tagName === 'A' && target.getAttribute('href')?.startsWith('#')) {
@@ -27,11 +27,33 @@ const Index = () => {
 
     document.addEventListener('click', handleAnchorClick);
     
+    // Intersection Observer for animation on scroll
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const handleIntersect = (entries: IntersectionObserverEntry[], observer: IntersectionObserver) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+          observer.unobserve(entry.target);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(handleIntersect, observerOptions);
+    document.querySelectorAll('.slide-up, .fade-in').forEach(el => {
+      observer.observe(el);
+    });
+    
     // Update title
     document.title = "L&M Exotic Fruits | Importación de Frutas Exóticas";
 
     return () => {
       document.removeEventListener('click', handleAnchorClick);
+      observer.disconnect();
     };
   }, []);
 

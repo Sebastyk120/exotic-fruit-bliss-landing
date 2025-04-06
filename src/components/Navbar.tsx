@@ -19,14 +19,14 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center">
           <div className="flex space-x-8 mr-8">
-            <a href="#inicio" className="font-medium hover:text-primary transition-colors">Inicio</a>
-            <a href="#nosotros" className="font-medium hover:text-primary transition-colors">Nosotros</a>
-            <a href="#productos" className="font-medium hover:text-primary transition-colors">Productos</a>
-            <a href="#contacto" className="font-medium hover:text-primary transition-colors">Contacto</a>
+            <a href="#inicio" className="font-medium hover:text-primary transition-colors hover:scale-105 transition-transform">Inicio</a>
+            <a href="#nosotros" className="font-medium hover:text-primary transition-colors hover:scale-105 transition-transform">Nosotros</a>
+            <a href="#productos" className="font-medium hover:text-primary transition-colors hover:scale-105 transition-transform">Productos</a>
+            <a href="#contacto" className="font-medium hover:text-primary transition-colors hover:scale-105 transition-transform">Contacto</a>
           </div>
           
-          {/* Login Button */}
-          <button className="flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-full hover:bg-primary/90 transition-colors">
+          {/* Login Button - Enhanced */}
+          <button className="flex items-center gap-2 bg-primary text-white px-5 py-2.5 rounded-full hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300">
             <LogIn size={18} />
             <span>Iniciar Sesión</span>
           </button>
@@ -42,7 +42,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white shadow-md md:hidden py-4">
+          <div className="absolute top-full left-0 right-0 bg-white shadow-md md:hidden py-4 animate-fade-in">
             <div className="container-custom flex flex-col space-y-4">
               <a href="#inicio" className="font-medium hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Inicio</a>
               <a href="#nosotros" className="font-medium hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Nosotros</a>
